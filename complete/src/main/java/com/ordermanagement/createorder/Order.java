@@ -3,7 +3,7 @@ package com.ordermanagement.createorder;
 public class Order {
 
 	private long id;
-	private String content;
+	private Temperature temperature;
 
 	public long getId() {
 		return id;
@@ -13,12 +13,11 @@ public class Order {
 		this.id = id;
 	}
 
-	public String getContent() {
-		return content;
+	public Temperature getTemperature() {
+		return temperature;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setTemperature(Temperature temperature) {
+		this.temperature = temperature;
 	}
-
 }
