@@ -5,13 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>Form</h1>
+	<h1>Place Order</h1>
     <form action="#" th:action="@{/order}" th:object="${order}" method="post">
     	<p>Id: <input type="text" th:field="*{id}" /></p>
+        
         <h2 style="margin-bottom: 0;">Temperature</h2>
         <div style="display: flex;">
-            <p><input type="radio" th:field="*{temperature}" value="*{Temperature.HOT}" required="true"/>Hot</p>
-            <p><input type="radio" th:field="*{temperature}" value="*{Temperature.COLD}" required="true"/>Cold</p>
+            <p><input type="radio" th:field="*{temperature}" value="HOT" required="true"/>Hot</p>
+            <p><input type="radio" th:field="*{temperature}" value="COLD" required="true"/>Cold</p>
         </div>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
