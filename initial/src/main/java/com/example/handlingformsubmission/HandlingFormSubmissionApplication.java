@@ -1,4 +1,4 @@
-package com.example.handlingformsubmission;
+package com.ordermanagement.createorder;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

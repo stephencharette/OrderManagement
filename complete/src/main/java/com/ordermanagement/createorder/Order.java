@@ -1,6 +1,6 @@
-package com.example.handlingformsubmission;
+package com.ordermanagement.createorder;
 
-public class Greeting {
+public class Order {
 
 	private long id;
 	private String content;

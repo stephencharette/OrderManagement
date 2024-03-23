@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.handlingformsubmission;
+package com.ordermanagement.createorder;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -28,7 +28,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(GreetingController.class)
+@WebMvcTest(OrderController.class)
 @TestPropertySource(properties = "logging.level.org.springframework.web=DEBUG")
 public class HandlingFormSubmissionApplicationTest {
 
