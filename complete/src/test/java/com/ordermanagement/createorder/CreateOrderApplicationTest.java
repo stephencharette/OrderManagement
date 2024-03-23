@@ -30,20 +30,20 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(OrderController.class)
 @TestPropertySource(properties = "logging.level.org.springframework.web=DEBUG")
-public class HandlingFormSubmissionApplicationTest {
+public class CreateOrderApplicationTest {
 
 	@Autowired
 	private MockMvc mockMvc;
 
 	@Test
 	public void rendersForm() throws Exception {
-		mockMvc.perform(get("/greeting"))
+		mockMvc.perform(get("/order"))
 				.andExpect(content().string(containsString("Form")));
 	}
 
 	@Test
 	public void submitsForm() throws Exception {
-		mockMvc.perform(post("/greeting").param("id", "12345").param("content", "Hello"))
+		mockMvc.perform(post("/order").param("id", "12345").param("content", "Hello"))
 				.andExpect(content().string(containsString("Result")))
 				.andExpect(content().string(containsString("id: 12345")));
 	}
