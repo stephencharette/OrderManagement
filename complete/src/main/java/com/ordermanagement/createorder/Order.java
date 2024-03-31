@@ -27,6 +27,10 @@ public class Order {
 		this.sizeId = sizeId;
 	}
 
+	public static BigDecimal calculatePrice(MenuItem menuItem, Size size) {
+		return menuItem.getBasePrice().add(size.getAdditionalCost());
+	}
+
 	public Long getId() {
 		return id;
 	}

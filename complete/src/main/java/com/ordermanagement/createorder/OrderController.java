@@ -1,5 +1,6 @@
 package com.ordermanagement.createorder;
 
+import java.math.BigDecimal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,7 +41,10 @@ public class OrderController {
 
 		MenuItem menuItem = menuItemRepository.findById(order.getMenuItemId()).get();
 		model.addAttribute("menuItem", menuItem);
-		
+
+		BigDecimal orderTotal = Order.calculatePrice(menuItem, size);
+		model.addAttribute("orderTotal", orderTotal);
+
 		model.addAttribute("order", order);
 		return "result";
 	}
