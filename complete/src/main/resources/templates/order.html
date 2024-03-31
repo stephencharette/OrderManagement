@@ -7,8 +7,6 @@
 <body>
 	<h1>Place Order</h1>
     <form action="#" th:action="@{/order}" th:object="${order}" method="post">
-    	<p>Id: <input type="text" th:field="*{id}" /></p>
-
         <h2 style="margin-bottom: 0;">Drink</h2>
         <select th:field="*{menuItemId}">
             <option th:each="menuItem : ${menuItems}" th:value="${menuItem.id}" th:text="${menuItem.name}">

@@ -11,10 +11,12 @@ public class OrderController {
 
 	private final MenuItemRepository menuItemRepository;
 	private final SizeRepository sizeRepository;
+	private final OrderRepository orderRepository;
 
-	public OrderController(MenuItemRepository menuItemRepository, SizeRepository sizeRepository) {
+	public OrderController(MenuItemRepository menuItemRepository, SizeRepository sizeRepository, OrderRepository orderRepository) {
 		this.menuItemRepository = menuItemRepository;
 		this.sizeRepository = sizeRepository;
+		this.orderRepository = orderRepository;
 	}
 
 	@GetMapping("/order")
@@ -31,6 +33,8 @@ public class OrderController {
 
 	@PostMapping("/order")
 	public String orderSubmit(@ModelAttribute Order order, Model model) {
+		orderRepository.save(order);
+
 		model.addAttribute("order", order);
 		return "result";
 	}

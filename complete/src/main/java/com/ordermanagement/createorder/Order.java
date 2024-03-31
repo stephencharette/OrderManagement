@@ -2,20 +2,33 @@ package com.ordermanagement.createorder;
 
 import java.util.*;
 import java.math.BigDecimal;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "orders")
 public class Order {
 
-	private int id;
+	@Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	private Temperature temperature;
 	private Long menuItemId;
 	private Long sizeId;
 
-	public int getId() {
-		return id;
+	protected Order() {}
+
+	public Order(Temperature temperature, Long menuItemId, Long sizeId) {
+		this.temperature = temperature;
+		this.menuItemId = menuItemId;
+		this.sizeId = sizeId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public Long getId() {
+		return id;
 	}
 
 	public Temperature getTemperature() {
