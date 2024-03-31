@@ -35,6 +35,12 @@ public class OrderController {
 	public String orderSubmit(@ModelAttribute Order order, Model model) {
 		orderRepository.save(order);
 
+		Size size = sizeRepository.findById(order.getSizeId()).get();
+		model.addAttribute("size", size);
+
+		MenuItem menuItem = menuItemRepository.findById(order.getMenuItemId()).get();
+		model.addAttribute("menuItem", menuItem);
+		
 		model.addAttribute("order", order);
 		return "result";
 	}

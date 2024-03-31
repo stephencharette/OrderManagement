@@ -22,6 +22,13 @@ public class Size {
 		this.additionalCost = additionalCost;
 	}
 
+	@Override
+  public String toString() {
+    return String.format(
+			"Size[id=%d, drinkSize='%s', additionalCost='%s']",
+			id, drinkSize, additionalCost.toString());
+  }
+
 	public DrinkSize getDrinkSize() {
 		return drinkSize;
 	}
