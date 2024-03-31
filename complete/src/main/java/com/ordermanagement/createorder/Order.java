@@ -1,15 +1,27 @@
 package com.ordermanagement.createorder;
 
+import java.util.*;
+import java.math.BigDecimal;
+
 public class Order {
 
-	private long id;
+	private int id;
 	private Temperature temperature;
+	private int menuItemId;
+	public static List<MenuItem> availableMenuItems = new ArrayList<MenuItem>() {
+		{
+			add(new MenuItem(1, "Pizza", new BigDecimal(12.99)));
+			add(new MenuItem(2, "Burger", new BigDecimal(8.99)));
+			add(new MenuItem(3, "Pasta", new BigDecimal(10.99)));
+			add(new MenuItem(4, "Salad", new BigDecimal(6.99)));
+		}
+	};
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -19,5 +31,13 @@ public class Order {
 
 	public void setTemperature(Temperature temperature) {
 		this.temperature = temperature;
+	}
+
+	public int getMenuItemId() {
+		return menuItemId;
+	}
+
+	public void setMenuItemId(int menuItemId) {
+		this.menuItemId = menuItemId;
 	}
 }

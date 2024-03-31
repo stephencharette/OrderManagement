@@ -9,6 +9,13 @@
     <form action="#" th:action="@{/order}" th:object="${order}" method="post">
     	<p>Id: <input type="text" th:field="*{id}" /></p>
         
+        <select th:field="*{menuItemId}">
+            <!-- Iterate over the elements of the static ArrayList -->
+            <option th:each="menuItem : ${T(com.ordermanagement.createorder.Order).availableMenuItems}"
+                    th:value="${menuItem.id}" th:text="${menuItem.name}">
+            </option>
+        </select>
+
         <h2 style="margin-bottom: 0;">Temperature</h2>
         <div style="display: flex;">
             <p><input type="radio" th:field="*{temperature}" value="HOT" required="true"/>Hot</p>
