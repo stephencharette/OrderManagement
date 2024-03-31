@@ -8,13 +8,14 @@
 	<h1>Place Order</h1>
     <form action="#" th:action="@{/order}" th:object="${order}" method="post">
     	<p>Id: <input type="text" th:field="*{id}" /></p>
-        
+
+        <h2 style="margin-bottom: 0;">Drink</h2>
         <select th:field="*{menuItemId}">
-            <option th:each="menuItem : ${T(com.ordermanagement.createorder.Order).availableMenuItems}"
-                    th:value="${menuItem.id}" th:text="${menuItem.name}">
+            <option th:each="menuItem : ${menuItems}" th:value="${menuItem.id}" th:text="${menuItem.name}">
             </option>
         </select>
 
+        <h2 style="margin-bottom: 0;">Size</h2>
         <select th:field="*{sizeId}">
             <option th:each="size : ${T(com.ordermanagement.createorder.Order).availableSizes}"
                     th:value="${size.id}" th:text="${size.drinkSize}">
