@@ -10,9 +10,14 @@
     	<p>Id: <input type="text" th:field="*{id}" /></p>
         
         <select th:field="*{menuItemId}">
-            <!-- Iterate over the elements of the static ArrayList -->
             <option th:each="menuItem : ${T(com.ordermanagement.createorder.Order).availableMenuItems}"
                     th:value="${menuItem.id}" th:text="${menuItem.name}">
+            </option>
+        </select>
+
+        <select th:field="*{sizeId}">
+            <option th:each="size : ${T(com.ordermanagement.createorder.Order).availableSizes}"
+                    th:value="${size.id}" th:text="${size.drinkSize}">
             </option>
         </select>
 
