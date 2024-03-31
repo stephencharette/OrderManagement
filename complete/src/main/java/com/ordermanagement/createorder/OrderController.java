@@ -10,15 +10,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class OrderController {
 
 	private final MenuItemRepository menuItemRepository;
+	private final SizeRepository sizeRepository;
 
-	public OrderController(MenuItemRepository menuItemRepository) {
+	public OrderController(MenuItemRepository menuItemRepository, SizeRepository sizeRepository) {
 		this.menuItemRepository = menuItemRepository;
+		this.sizeRepository = sizeRepository;
 	}
 
 	@GetMapping("/order")
 	public String orderForm(Model model) {
 		Iterable<MenuItem> menuItems = menuItemRepository.findAll();
 		model.addAttribute("menuItems", menuItems);
+
+		Iterable<Size> sizes = sizeRepository.findAll();
+		model.addAttribute("sizes", sizes);
+
 		model.addAttribute("order", new Order());
 		return "order";
 	}

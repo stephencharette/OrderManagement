@@ -7,15 +7,8 @@ public class Order {
 
 	private int id;
 	private Temperature temperature;
-	private int menuItemId;
-	private int sizeId;
-
-	public static List<Size> availableSizes = new ArrayList<Size>() {
-		{
-			add(new Size(1, DrinkSize.MEDIUM, new BigDecimal(0)));
-			add(new Size(2, DrinkSize.LARGE, new BigDecimal(0.99)));
-		}
-	};
+	private Long menuItemId;
+	private Long sizeId;
 
 	public int getId() {
 		return id;
@@ -33,19 +26,19 @@ public class Order {
 		this.temperature = temperature;
 	}
 
-	public int getMenuItemId() {
+	public Long getMenuItemId() {
 		return menuItemId;
 	}
 
-	public void setMenuItemId(int menuItemId) {
+	public void setMenuItemId(Long menuItemId) {
 		this.menuItemId = menuItemId;
 	}
 
-	public int getSizeId() {
+	public Long getSizeId() {
 		return sizeId;
 	}
 
-	public void setSizeId(int sizeId) {
+	public void setSizeId(Long sizeId) {
 		this.sizeId = sizeId;
 	}
 }

@@ -1,32 +1,26 @@
 package com.ordermanagement.createorder;
 
 import java.math.BigDecimal;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Size {
 
-	private int id;
+	@Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	private DrinkSize drinkSize;
 	private BigDecimal additionalCost;
 
-	// private static Size[] availableSizes = {
-	// 	new Size(DrinkSize.MEDIUM, new BigDecimal("0.00")),
-	// 	new Size(DrinkSize.LARGE, new BigDecimal("1.00"))
-	// };
+	protected Size() {}
 
-	public Size(int id, DrinkSize drinkSize, BigDecimal additionalCost) {
-		this.id = id;
+	public Size(DrinkSize drinkSize, BigDecimal additionalCost) {
 		this.drinkSize = drinkSize;
 		this.additionalCost = additionalCost;
 	}
-
-	// public static Size getSize(DrinkSize drinkSize) {
-	// 	for (Size size : availableSizes) {
-	// 		if (size.getDrinkSize() == drinkSize) {
-	// 			return size;
-	// 		}
-	// 	}
-	// 	return null;
-	// }
 
 	public DrinkSize getDrinkSize() {
 		return drinkSize;
@@ -44,11 +38,7 @@ public class Size {
 		this.additionalCost = additionalCost;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 }

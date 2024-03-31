@@ -18,26 +18,29 @@ public class CreateOrderApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(MenuItemRepository repository) {
+	public CommandLineRunner demo(MenuItemRepository menuItemRepository, SizeRepository sizeRepository) {
     return (args) -> {
-      repository.save(new MenuItem("Spring Milk Tea", new BigDecimal(6.99)));
-      repository.save(new MenuItem("Coconut Milk Tea", new BigDecimal(6.99)));
-      repository.save(new MenuItem("Mango Green Tea", new BigDecimal(5.99)));
-      repository.save(new MenuItem("Spring Green Tea", new BigDecimal(5.99)));
+      menuItemRepository.save(new MenuItem("Spring Milk Tea", new BigDecimal(6.99)));
+      menuItemRepository.save(new MenuItem("Coconut Milk Tea", new BigDecimal(6.99)));
+      menuItemRepository.save(new MenuItem("Mango Green Tea", new BigDecimal(5.99)));
+      menuItemRepository.save(new MenuItem("Spring Green Tea", new BigDecimal(5.99)));
 
       // fetch all customers
       log.info("Menu items found with findAll():");
       log.info("-------------------------------");
-      repository.findAll().forEach(menuItem -> {
+      menuItemRepository.findAll().forEach(menuItem -> {
         log.info(menuItem.toString());
       });
       log.info("");
 
-      MenuItem menuItem = repository.findById(1L);
+      MenuItem menuItem = menuItemRepository.findById(1L);
       log.info("menuItem found with findById(1L):");
       log.info("--------------------------------");
       log.info(menuItem.toString());
       log.info("");
+
+      sizeRepository.save(new Size(DrinkSize.MEDIUM, new BigDecimal(0)));
+      sizeRepository.save(new Size(DrinkSize.LARGE, new BigDecimal(0.99)));
     };
   }
 
