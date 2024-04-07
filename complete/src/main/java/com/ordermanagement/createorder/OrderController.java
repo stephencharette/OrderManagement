@@ -42,7 +42,7 @@ public class OrderController {
 		MenuItem menuItem = menuItemRepository.findById(order.getMenuItemId()).get();
 		model.addAttribute("menuItem", menuItem);
 
-		BigDecimal orderTotal = Order.calculatePrice(menuItem, size);
+		BigDecimal orderTotal = Order.calculateTotal(menuItem, size);
 		model.addAttribute("orderTotal", orderTotal);
 
 		model.addAttribute("order", order);
