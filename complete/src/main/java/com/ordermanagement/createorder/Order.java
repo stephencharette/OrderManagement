@@ -15,9 +15,10 @@ public class Order {
 	@Id
   @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	private Date date = new Date();
 	private Temperature temperature;
-	private Long menuItemId;
 	private Long sizeId;
+	private Long menuItemId;
 
 	protected Order() {}
 
@@ -27,7 +28,7 @@ public class Order {
 		this.sizeId = sizeId;
 	}
 
-	public static BigDecimal calculatePrice(MenuItem menuItem, Size size) {
+	public static BigDecimal calculateTotal(MenuItem menuItem, Size size) {
 		return menuItem.getBasePrice().add(size.getAdditionalCost());
 	}
 
@@ -57,5 +58,9 @@ public class Order {
 
 	public void setSizeId(Long sizeId) {
 		this.sizeId = sizeId;
+	}
+
+	public Date getDate() {
+		return date;
 	}
 }

@@ -12,29 +12,29 @@ public class Size {
 	@Id
   @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	private DrinkSize drinkSize;
+	private String name;
 	private BigDecimal additionalCost;
 
 	protected Size() {}
 
-	public Size(DrinkSize drinkSize, BigDecimal additionalCost) {
-		this.drinkSize = drinkSize;
+	public Size(String name, BigDecimal additionalCost) {
+		this.name = name;
 		this.additionalCost = additionalCost;
 	}
 
 	@Override
   public String toString() {
     return String.format(
-			"Size[id=%d, drinkSize='%s', additionalCost='%s']",
-			id, drinkSize, additionalCost.toString());
+			"Size[id=%d, name='%s', additionalCost='%s']",
+			id, name, additionalCost.toString());
   }
 
-	public DrinkSize getDrinkSize() {
-		return drinkSize;
+	public String getName() {
+		return name;
 	}
 
-	public void setDrinkSize(DrinkSize drinkSize) {
-		this.drinkSize = drinkSize;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public BigDecimal getAdditionalCost() {

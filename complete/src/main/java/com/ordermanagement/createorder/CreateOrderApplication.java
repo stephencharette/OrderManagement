@@ -39,8 +39,14 @@ public class CreateOrderApplication {
       log.info(menuItem.toString());
       log.info("");
 
-      sizeRepository.save(new Size(DrinkSize.MEDIUM, new BigDecimal(0)));
-      sizeRepository.save(new Size(DrinkSize.LARGE, new BigDecimal(0.99)));
+      sizeRepository.save(new Size("Medium", new BigDecimal(0)));
+      sizeRepository.save(new Size("Large", new BigDecimal(0.99)));
+
+      Size size = sizeRepository.findById(1L);
+      log.info("size found with findById(1L):");
+      log.info("--------------------------------");
+      log.info(size.toString());
+      log.info("");
     };
   }
 

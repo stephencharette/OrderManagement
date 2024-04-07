@@ -21,7 +21,7 @@ public class OrderController {
 	}
 
 	@GetMapping("/order")
-	public String orderForm(Model model) {
+	public String showCreateOrder(Model model) {
 		Iterable<MenuItem> menuItems = menuItemRepository.findAll();
 		model.addAttribute("menuItems", menuItems);
 
@@ -29,11 +29,11 @@ public class OrderController {
 		model.addAttribute("sizes", sizes);
 
 		model.addAttribute("order", new Order());
-		return "order";
+		return "displayCreateOrder";
 	}
 
 	@PostMapping("/order")
-	public String orderSubmit(@ModelAttribute Order order, Model model) {
+	public String handleOrderSubmit(@ModelAttribute Order order, Model model) {
 		orderRepository.save(order);
 
 		Size size = sizeRepository.findById(order.getSizeId()).get();
