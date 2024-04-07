@@ -4,17 +4,19 @@
     <title>Place Order</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+<script type="text/javascript" th:src="@{/js/actions.js}"></script>
 <body>
+    <button type="button" th:onclick="showAlert()">Show Alert</button>
 	<h1>Place Order</h1>
     <form action="#" th:action="@{/order}" th:object="${order}" method="post">
         <h2 style="margin-bottom: 0;">Drink</h2>
-        <select th:field="*{menuItemId}">
+        <select th:field="*{menuItemId}" id="selectMenuIetm">
             <option th:each="menuItem : ${menuItems}" th:value="${menuItem.id}" th:text="${menuItem.name}">
             </option>
         </select>
 
         <h2 style="margin-bottom: 0;">Size</h2>
-        <select th:field="*{sizeId}">
+        <select th:field="*{sizeId}" id="selectSize">
             <option th:each="size : ${sizes}" th:value="${size.id}" th:text="${size.name}">
             </option>
         </select>
@@ -24,7 +26,9 @@
             <p><input type="radio" th:field="*{temperature}" value="HOT" required="true"/>Hot</p>
             <p><input type="radio" th:field="*{temperature}" value="COLD" required="true"/>Cold</p>
         </div>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+
+        <p id="total">$0.00</p>
+        <p><input id="submit" type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
 </body>
 </html>
