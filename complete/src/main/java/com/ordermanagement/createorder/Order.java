@@ -19,6 +19,7 @@ public class Order {
 	private Temperature temperature;
 	private Long sizeId;
 	private Long menuItemId;
+	private Long customerId;
 
 	protected Order() {}
 
@@ -52,6 +53,10 @@ public class Order {
 		this.menuItemId = menuItemId;
 	}
 
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
+
 	public Long getSizeId() {
 		return sizeId;
 	}
@@ -62,5 +67,9 @@ public class Order {
 
 	public Date getDate() {
 		return date;
+	}
+
+	public Long getCustomerId() {
+		return customerId;
 	}
 }

@@ -45,7 +45,16 @@ public class OrderController {
 		BigDecimal orderTotal = Order.calculateTotal(menuItem, size);
 		model.addAttribute("orderTotal", orderTotal);
 
+		Customer customer = GetCustomer();
+		order.setCustomerId(customer.getId());
+
 		model.addAttribute("order", order);
 		return "result";
+	}
+
+	public Customer GetCustomer() {
+		Customer customer = new Customer(1L);
+
+		return customer;
 	}
 }
