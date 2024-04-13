@@ -6,11 +6,10 @@
 </head>
 <script type="text/javascript" th:src="@{/js/actions.js}"></script>
 <body>
-    <button type="button" th:onclick="showAlert()">Show Alert</button>
 	<h1>Place Order</h1>
     <form action="#" th:action="@{/order}" th:object="${order}" method="post">
         <h2 style="margin-bottom: 0;">Drink</h2>
-        <select th:field="*{menuItemId}" id="selectMenuIetm">
+        <select th:field="*{menuItemId}" id="selectMenuItem">
             <option th:each="menuItem : ${menuItems}" th:value="${menuItem.id}" th:text="${menuItem.name}">
             </option>
         </select>

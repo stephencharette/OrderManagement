@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const menuItemSelectElement = document.getElementById("selectMenuIetm");
+  const menuItemSelectElement = document.getElementById("selectMenuItem");
   const sizeSelectElement = document.getElementById("selectSize");
   const resultParagraph = document.getElementById("total");
 
