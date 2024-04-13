@@ -25,17 +25,17 @@ jobs:
           cache: maven
 
       - name: Build Initial with Maven
-        working-directory: ./initial
+        working-directory: ./
         run: ./mvnw --batch-mode clean package
 
       - name: Build Initial with Gradle
-        working-directory: ./initial
+        working-directory: ./
         run: ./gradlew build
 
       - name: Build Complete with Maven
-        working-directory: ./complete
+        working-directory: ./
         run: ./mvnw --batch-mode clean package
 
       - name: Build Complete with Gradle
-        working-directory: ./complete
+        working-directory: ./
         run: ./gradlew build
