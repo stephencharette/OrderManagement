@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package com.ordermanagement.createorder;
+package com.order_management;
+
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;

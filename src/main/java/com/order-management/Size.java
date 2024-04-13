@@ -1,4 +1,4 @@
-package com.ordermanagement.createorder;
+package com.order_management;
 
 import java.math.BigDecimal;
 import jakarta.persistence.Entity;

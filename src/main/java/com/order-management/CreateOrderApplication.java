@@ -1,4 +1,4 @@
-package com.ordermanagement.createorder;
+package com.order_management;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
