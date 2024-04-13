@@ -24,18 +24,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Build Initial with Maven
+      - name: Build with Maven
         working-directory: ./
         run: ./mvnw --batch-mode clean package
 
-      - name: Build Initial with Gradle
-        working-directory: ./
-        run: ./gradlew build
-
-      - name: Build Complete with Maven
-        working-directory: ./
-        run: ./mvnw --batch-mode clean package
-
-      - name: Build Complete with Gradle
+      - name: Build with Gradle
         working-directory: ./
         run: ./gradlew build
