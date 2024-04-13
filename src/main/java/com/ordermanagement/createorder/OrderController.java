@@ -82,6 +82,7 @@ public class OrderController {
 
 	@PostMapping("/order")
 	public String handleOrderSubmit(@ModelAttribute Order order, Model model) {
+		order.setCustomerId(GetCustomer().getId());
 		orderRepository.save(order);
 
 		Size size = sizeRepository.findById(order.getSizeId()).get();
