@@ -14,6 +14,7 @@ public class CreateOrderApplication {
 	private static final Logger log = LoggerFactory.getLogger(CreateOrderApplication.class);
 
 	public static void main(String[] args) {
+    System.setProperty("spring.profiles.default", "dev");
 		SpringApplication.run(CreateOrderApplication.class, args);
 	}
 
